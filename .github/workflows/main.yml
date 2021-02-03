@@ -39,9 +39,9 @@ jobs:
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          function_name: printhello
           zip_file: functions/printhello.zip
           handler: lambda_handler
           aws_region: eu-central-1
           role: arn:aws:iam::938690581919:role/service-role/db_data-role-67ja8s4y
           runtime: python3.6
-          function_name: printhello
