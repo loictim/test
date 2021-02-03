@@ -33,7 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           cd functions
-          zip -rj printhello.zip printhello/*.py ./psycopg2
+          zip -rj printhello.zip printhello/*.py ./../psycopg2
       - name: deploy to aws
         uses: appleboy/lambda-action@master
         with:
@@ -44,3 +44,4 @@ jobs:
           handler: lambda_handler
           aws_region: eu-central-1
           role: arn:aws:iam::938690581919:role/service-role/db_data-role-67ja8s4y
+          runtime: python3.6
