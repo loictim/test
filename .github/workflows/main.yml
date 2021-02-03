@@ -36,6 +36,8 @@ jobs:
           zip -ur printhello.zip psycopg2
           zip -j printhello2.zip ./functions/printhello2/*.py
           zip -ur printhello2.zip psycopg2
+          zip -j printpalme240.zip ./functions/printpalme240/*.py
+          zip -ur printpalme240.zip psycopg2
       - name: deploy to aws printhello
         uses: appleboy/lambda-action@master
         with:
@@ -54,6 +56,17 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           function_name: printhello2
           zip_file: printhello2.zip
+          handler: lambda_function.lambda_handler
+          aws_region: eu-central-1
+          role: arn:aws:iam::938690581919:role/service-role/db_data-role-67ja8s4y
+          runtime: python3.6
+      - name: deploy to aws printhello2
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          function_name: printpalme240
+          zip_file: printpalme240.zip
           handler: lambda_function.lambda_handler
           aws_region: eu-central-1
           role: arn:aws:iam::938690581919:role/service-role/db_data-role-67ja8s4y
