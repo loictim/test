@@ -44,3 +44,4 @@ jobs:
           aws_region: eu-central-1
           role: arn:aws:iam::938690581919:role/service-role/db_data-role-67ja8s4y
           runtime: python3.6
+          function_name: printhello
